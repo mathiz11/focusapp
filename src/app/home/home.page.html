@@ -1,14 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="ion-padding-horizontal ion-text-center">
+
+    <div id="total">
+      <ion-label>TOTAL : {{totalTime}}:00</ion-label>
+    </div>
+
+    <div id="toggle">
+      <ion-icon slot="start" class="icon-sex" name="female"></ion-icon>
+      <ion-toggle [(ngModel)]="isBoy"></ion-toggle>
+      <ion-icon slot="end" class="icon-sex" name="male"></ion-icon>
+    </div>
+    
+    <div id="timer">
+      <img [src]="imagePath" alt="human">
+      <round-progress [current]="timeLeft/(range*60)" color="#377ffd" max="1" [responsive]="true" [rounded]="true"></round-progress>
+    </div>
+
+    <div id="time">
+      <ion-label>{{format}}</ion-label>
+    </div>
+
+    <div id="range">
+      <ion-range [disabled]="inProgress === true" (ionChange)="changeRange($event)" max="90">
+        <ion-icon slot="start" name="remove"></ion-icon>
+        <ion-icon slot="end" name="add"></ion-icon>
+      </ion-range>
+    </div>
+
+    <ion-button [color]="inProgress === true ? 'danger' : 'primary'" shape="round" (click)="changeState()" [disabled]="range === 0">
+      {{!inProgress ? 'COMMENCER' : 'ABANDONNER'}}
+    </ion-button>
+
   </div>
 </ion-content>

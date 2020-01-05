@@ -1,5 +1,7 @@
 {
   "name": "focusapp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
