@@ -55,15 +55,16 @@ export class HomePage implements OnInit, DoCheck {
     this.imagePath = 'assets/images/fetus.png';
     this.isBoy = false;
     this.alert = false;
-    this.getTotalTime();
+    this.storage.get('totalTime').then((val) => {
+      this.totalTime = val ? val : 0; 
+    });
   }
 
   ngDoCheck() {
     if (this.timeLeft === 0) {
       this.presentAlert();
       this.setTotalTime(this.range);
-      this.getTotalTime();
-      this.timeLeft = -1;
+      this.stop();
     }
     const deltaTime = this.range * 60 - this.timeLeft;
     if (deltaTime >= 0 && deltaTime <= 900) {
@@ -97,12 +98,6 @@ export class HomePage implements OnInit, DoCheck {
       buttons: ['OK']
     });
     await alert.present();
-  }
-
-  getTotalTime() {
-    this.storage.get('totalTime').then((val) => {
-      this.totalTime = val ? val : 0; 
-    });
   }
 
   setTotalTime(val: number) {

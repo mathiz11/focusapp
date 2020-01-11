@@ -7,7 +7,7 @@
 
     <div id="toggle">
       <ion-icon slot="start" class="icon-sex" name="female"></ion-icon>
-      <ion-toggle [(ngModel)]="isBoy"></ion-toggle>
+      <ion-toggle [disabled]="inProgress === true" [(ngModel)]="isBoy"></ion-toggle>
       <ion-icon slot="end" class="icon-sex" name="male"></ion-icon>
     </div>
     
