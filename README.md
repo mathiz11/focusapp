@@ -8,7 +8,7 @@ It looks like Forest but i use an evolution of a baby.
 
 Screenshot home :
 
-![Screenshot home FocusApp](images/screenshot.JPG "Screenshot Home FocusApp")
+![Screenshot home FocusApp](https://github.com/mathiz11/focusapp/blob/master/images/capture.JPG?raw=true "Screenshot Home FocusApp")
 
 ## Installation
 
